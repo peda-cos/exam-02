@@ -24,13 +24,15 @@ char	*ft_strcpy(char *s1, char *s2)
 }
 
 #include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
 
-int	main(void)
+int main(int argc, char **argv)
 {
-	char *src = "aoba";
-	char dest[4];
-
-	ft_strcpy(dest, src);
+	(void)argc;
+	char	*dest = malloc(sizeof(char) * (strlen(argv[1]) + 1));
+	ft_strcpy(dest, argv[1]);
 	printf("%s\n", dest);
+	free(dest);
 	return (0);
 }

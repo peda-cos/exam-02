@@ -28,8 +28,9 @@ void	ft_putstr(char *str)
 	}
 }
 
-int main(void)
+int main(int argc, char **argv)
 {
-	ft_putstr("aoba");
+	(void)argc;
+	ft_putstr(argv[1]);
 	return (0);
 }
