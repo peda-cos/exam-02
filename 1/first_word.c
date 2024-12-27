@@ -1,36 +1,29 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   first_word.c                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: peda-cos <peda-cos@student.42sp.org.br>    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/14 22:58:30 by peda-cos          #+#    #+#             */
-/*   Updated: 2024/12/14 23:01:02 by peda-cos         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+#include <stdlib.h> //EXIT_SUCCESS STDOUT_FILENO
+#include <unistd.h> // write
 
-#include <unistd.h>
-
-void	ft_putchar(char c)
+static void ft_putchar_fd(char character, int file_descriptor)
 {
-	write(1, &c, 1);
+    if (file_descriptor >= 0x0)
+        write(file_descriptor, &character, sizeof(char));
 }
 
-int	main(int argc, char **argv)
+static int ft_isspace(char character)
 {
-	int i = 0;
+    return ((character == ' ') || ((character >= '\t') && (character <= '\r')));
+}
 
-	if (argc == 2)
-	{
-		while (argv[1][i] == ' ' || argv[1][i] == '\t')
-			i++;
-		while (argv[1][i] && argv[1][i] != ' ' && argv[1][i] != '\t')
-		{
-			ft_putchar(argv[1][i]);
-			i++;
-		}
-	}
-	ft_putchar('\n');
-	return (0);
+static void ft_first_word(char *string)
+{
+    while (ft_isspace(*string))
+        string++;
+    while (*string && !ft_isspace(*string))
+        ft_putchar_fd(*string++, STDOUT_FILENO);
+}
+
+int main(int argc, char **argv)
+{
+    if (argc == 0x2)
+        ft_first_word(argv[0x1]);
+    ft_putchar_fd('\n', STDOUT_FILENO);
+    return (EXIT_SUCCESS);
 }
