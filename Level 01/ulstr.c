@@ -6,7 +6,7 @@
 /*   By: peda-cos <peda-cos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 06:49:37 by peda-cos          #+#    #+#             */
-/*   Updated: 2025/02/02 06:54:16 by peda-cos         ###   ########.fr       */
+/*   Updated: 2025/02/02 07:16:19 by peda-cos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ static void	ft_putchar(char c)
 {
 	write(1, &c, 1);
 }
+
 static int	ft_isupper(char c)
 {
 	return (c >= 'A' && c <= 'Z');
