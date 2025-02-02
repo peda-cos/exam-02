@@ -1,26 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   controle_de_fluxo.c                                :+:      :+:    :+:   */
+/*   first_word.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: peda-cos <peda-cos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/16 20:49:00 by peda-cos          #+#    #+#             */
-/*   Updated: 2025/01/16 20:49:24 by peda-cos         ###   ########.fr       */
+/*   Created: 2025/02/02 06:17:52 by peda-cos          #+#    #+#             */
+/*   Updated: 2025/02/02 06:22:57 by peda-cos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include <unistd.h>
 
-int	main(void)
+static void	ft_putchar(char c)
 {
-	int	numero;
+	write(1, &c, 1);
+}
 
-	printf("Digite um número: ");
-	scanf("%d", &numero);
-	if (numero % 2 == 0)
-		printf("O número é par.\n");
-	else
-		printf("O número é ímpar.\n");
+static int	ft_isspace(char c)
+{
+	return (c == 32 || (c >= 9 && c <= 13));
+}
+static void	first_word(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (ft_isspace(str[i]))
+		i++;
+	while (str[i] && !ft_isspace(str[i]))
+	{
+		ft_putchar(str[i]);
+		i++;
+	}
+}
+
+int	main(int argc, char **argv)
+{
+	if (argc == 2)
+		first_word(argv[1]);
+	ft_putchar('\n');
 	return (0);
 }
