@@ -6,7 +6,7 @@
 /*   By: peda-cos <peda-cos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 07:53:36 by peda-cos          #+#    #+#             */
-/*   Updated: 2025/02/02 08:02:47 by peda-cos         ###   ########.fr       */
+/*   Updated: 2025/02/02 08:04:13 by peda-cos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	ft_atoi(const char *str)
 			sign = -1;
 		i++;
 	}
-	while (ft_isdigit(str[i]))
+	while (str[i] && ft_isdigit(str[i]))
 	{
 		result = result * 10 + (str[i] - '0');
 		i++;
