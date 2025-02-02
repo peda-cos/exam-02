@@ -6,7 +6,7 @@
 /*   By: peda-cos <peda-cos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 06:17:52 by peda-cos          #+#    #+#             */
-/*   Updated: 2025/02/02 06:22:57 by peda-cos         ###   ########.fr       */
+/*   Updated: 2025/02/02 07:17:28 by peda-cos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ static int	ft_isspace(char c)
 {
 	return (c == 32 || (c >= 9 && c <= 13));
 }
+
 static void	first_word(char *str)
 {
 	int	i;
