@@ -6,18 +6,18 @@
 /*   By: peda-cos <peda-cos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 08:32:21 by peda-cos          #+#    #+#             */
-/*   Updated: 2025/02/02 08:32:44 by peda-cos         ###   ########.fr       */
+/*   Updated: 2025/02/02 20:22:51 by peda-cos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned char   reverse_bits(unsigned char octet)
+unsigned char	reverse_bits(unsigned char octet)
 {
-	return  (((octet >> 0) & 1) << 7) | \
+	return ((((octet >> 0) & 1) << 7) | \
 			(((octet >> 1) & 1) << 6) | \
 			(((octet >> 2) & 1) << 5) | \
 			(((octet >> 3) & 1) << 4) | \
 			(((octet >> 4) & 1) << 3) | \
 			(((octet >> 5) & 1) << 2) | \
 			(((octet >> 6) & 1) << 1) | \
-			(((octet >> 7) & 1) << 0);
+			(((octet >> 7) & 1) << 0));
 }
