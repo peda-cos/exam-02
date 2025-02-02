@@ -6,7 +6,7 @@
 /*   By: peda-cos <peda-cos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 06:55:51 by peda-cos          #+#    #+#             */
-/*   Updated: 2025/02/02 07:06:26 by peda-cos         ###   ########.fr       */
+/*   Updated: 2025/02/02 07:15:15 by peda-cos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ static void	fizzbuzz(int n)
 
 int	main(void)
 {
-	int i;
+	int	i;
 
 	i = 1;
 	while (i <= 100)
