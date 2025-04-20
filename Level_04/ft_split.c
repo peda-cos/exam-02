@@ -6,7 +6,7 @@
 /*   By: peda-cos <peda-cos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/19 22:59:31 by peda-cos          #+#    #+#             */
-/*   Updated: 2025/04/19 23:04:11 by peda-cos         ###   ########.fr       */
+/*   Updated: 2025/04/19 23:05:45 by peda-cos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	skip_whitespace(char *str, int *index)
 		(*index)++;
 }
 
-char	**split(char *str)
+char	**ft_split(char *str)
 {
 	char	**word_array;
 	int		str_index;
