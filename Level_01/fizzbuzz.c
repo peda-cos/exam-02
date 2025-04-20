@@ -5,54 +5,74 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: peda-cos <peda-cos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/19 15:10:57 by peda-cos          #+#    #+#             */
-/*   Updated: 2025/04/19 15:11:33 by peda-cos         ###   ########.fr       */
+/*   Created: 2025/04/19 22:37:44 by peda-cos          #+#    #+#             */
+/*   Updated: 2025/04/19 22:38:17 by peda-cos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-static void	ft_putchar(char c)
+void	ft_putchar(char c)
 {
 	write(1, &c, 1);
 }
 
-static void	ft_putstr(char *str)
+void	ft_putstr(char *str)
 {
-	int	i;
+	int	index;
 
-	i = 0;
-	while (str[i])
+	index = 0;
+	while (str[index] != '\0')
 	{
-		ft_putchar(str[i]);
-		i++;
+		ft_putchar(str[index]);
+		index++;
 	}
 }
 
-static void	ft_putnbr(int n)
+void	ft_putnbr(int n)
 {
-	if (n > 9)
+	if (n >= 10)
+	{
 		ft_putnbr(n / 10);
+	}
 	ft_putchar(n % 10 + '0');
+}
+
+void	evaluate_number(int number)
+{
+	int	divisible_by_3;
+	int	divisible_by_5;
+
+	divisible_by_3 = (number % 3 == 0);
+	divisible_by_5 = (number % 5 == 0);
+	if (divisible_by_3 && divisible_by_5)
+	{
+		ft_putstr("fizzbuzz");
+	}
+	else if (divisible_by_3)
+	{
+		ft_putstr("fizz");
+	}
+	else if (divisible_by_5)
+	{
+		ft_putstr("buzz");
+	}
+	else
+	{
+		ft_putnbr(number);
+	}
 }
 
 int	main(void)
 {
-	int	i;
+	int	number;
 
-	i = 1;
-	while (i <= 100)
+	number = 1;
+	while (number <= 100)
 	{
-		if (i % 15 == 0)
-			ft_putstr("fizzbuzz");
-		else if (i % 3 == 0)
-			ft_putstr("fizz");
-		else if (i % 5 == 0)
-			ft_putstr("buzz");
-		else
-			ft_putnbr(i);
+		evaluate_number(number);
 		ft_putchar('\n');
-		i++;
+		number++;
 	}
 	return (0);
 }

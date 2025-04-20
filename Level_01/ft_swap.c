@@ -5,16 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: peda-cos <peda-cos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/19 15:14:05 by peda-cos          #+#    #+#             */
-/*   Updated: 2025/04/19 15:14:07 by peda-cos         ###   ########.fr       */
+/*   Created: 2025/04/19 22:40:33 by peda-cos          #+#    #+#             */
+/*   Updated: 2025/04/19 22:40:34 by peda-cos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 void	ft_swap(int *a, int *b)
 {
-	int	temp;
+	int	temp_value;
 
-	temp = *a;
+	temp_value = *a;
 	*a = *b;
-	*b = temp;
+	*b = temp_value;
 }

@@ -5,41 +5,48 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: peda-cos <peda-cos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/19 15:18:37 by peda-cos          #+#    #+#             */
-/*   Updated: 2025/04/19 15:18:37 by peda-cos         ###   ########.fr       */
+/*   Created: 2025/04/19 22:41:15 by peda-cos          #+#    #+#             */
+/*   Updated: 2025/04/19 22:41:16 by peda-cos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-static void	ft_putchar(char c)
+void	ft_putchar(char c)
 {
 	write(1, &c, 1);
 }
 
-static char	apply_rotone(char c)
+char	rotate_one_position(char c)
 {
 	if ((c >= 'a' && c <= 'y') || (c >= 'A' && c <= 'Y'))
+	{
 		return (c + 1);
-	if (c == 'z')
-		return ('a');
-	if (c == 'Z')
-		return ('A');
+	}
+	else if (c == 'z' || c == 'Z')
+	{
+		return (c - 25);
+	}
 	return (c);
+}
+
+void	process_string(char *str)
+{
+	int	index;
+
+	index = 0;
+	while (str[index] != '\0')
+	{
+		ft_putchar(rotate_one_position(str[index]));
+		index++;
+	}
 }
 
 int	main(int argc, char **argv)
 {
-	int	i;
-
 	if (argc == 2)
 	{
-		i = 0;
-		while (argv[1][i])
-		{
-			ft_putchar(apply_rotone(argv[1][i]));
-			i++;
-		}
+		process_string(argv[1]);
 	}
 	ft_putchar('\n');
 	return (0);

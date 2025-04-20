@@ -5,39 +5,48 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: peda-cos <peda-cos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/19 15:17:28 by peda-cos          #+#    #+#             */
-/*   Updated: 2025/04/19 15:17:48 by peda-cos         ###   ########.fr       */
+/*   Created: 2025/04/19 22:41:03 by peda-cos          #+#    #+#             */
+/*   Updated: 2025/04/19 22:41:07 by peda-cos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-static void	ft_putchar(char c)
+void	ft_putchar(char c)
 {
 	write(1, &c, 1);
 }
 
-static char	apply_rot13(char c)
+char	apply_rot13(char c)
 {
 	if ((c >= 'a' && c <= 'm') || (c >= 'A' && c <= 'M'))
+	{
 		return (c + 13);
-	if ((c >= 'n' && c <= 'z') || (c >= 'N' && c <= 'Z'))
+	}
+	else if ((c >= 'n' && c <= 'z') || (c >= 'N' && c <= 'Z'))
+	{
 		return (c - 13);
+	}
 	return (c);
+}
+
+void	process_string(char *str)
+{
+	int	index;
+
+	index = 0;
+	while (str[index] != '\0')
+	{
+		ft_putchar(apply_rot13(str[index]));
+		index++;
+	}
 }
 
 int	main(int argc, char **argv)
 {
-	int	i;
-
 	if (argc == 2)
 	{
-		i = 0;
-		while (argv[1][i])
-		{
-			ft_putchar(apply_rot13(argv[1][i]));
-			i++;
-		}
+		process_string(argv[1]);
 	}
 	ft_putchar('\n');
 	return (0);

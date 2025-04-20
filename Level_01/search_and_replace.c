@@ -5,43 +5,47 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: peda-cos <peda-cos@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/19 15:18:47 by peda-cos          #+#    #+#             */
-/*   Updated: 2025/04/19 15:19:58 by peda-cos         ###   ########.fr       */
+/*   Created: 2025/04/19 22:41:22 by peda-cos          #+#    #+#             */
+/*   Updated: 2025/04/19 22:41:23 by peda-cos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-static void	ft_putchar(char c)
+void	ft_putchar(char c)
 {
 	write(1, &c, 1);
 }
 
-static int	ft_strlen(char *str)
+int	is_single_char(char *str)
 {
-	int	len;
+	return (str[0] != '\0' && str[1] == '\0');
+}
 
-	len = 0;
-	while (str[len])
-		len++;
-	return (len);
+void	replace_and_print(char *str, char target, char replacement)
+{
+	int	index;
+
+	index = 0;
+	while (str[index] != '\0')
+	{
+		if (str[index] == target)
+		{
+			ft_putchar(replacement);
+		}
+		else
+		{
+			ft_putchar(str[index]);
+		}
+		index++;
+	}
 }
 
 int	main(int argc, char **argv)
 {
-	int	i;
-
-	if (argc == 4 || ft_strlen(argv[2]) == 1 || ft_strlen(argv[3]) == 1)
+	if (argc == 4 && is_single_char(argv[2]) && is_single_char(argv[3]))
 	{
-		i = 0;
-		while (argv[1][i])
-		{
-			if (argv[1][i] == argv[2][0])
-				ft_putchar(argv[3][0]);
-			else
-				ft_putchar(argv[1][i]);
-			i++;
-		}
+		replace_and_print(argv[1], argv[2][0], argv[3][0]);
 	}
 	ft_putchar('\n');
 	return (0);
